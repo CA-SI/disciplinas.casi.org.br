@@ -1,6 +1,6 @@
 /*
  * CÓPIA de CA-SI/guia.casi.org.br:src/app/tema.css (ADR 0003). Não edite aqui: altere no guia e copie de volta.
- * Origem: branch feat/mvp-git-first, ainda sem commit no origin quando copiado (2026-10-10).
+ * Origem: commit 8b39d4478fe529af923cadf91f83423f3986a386 (branch feat/mvp-git-first).
  */
 /* Derivados do legado (legacy/scss/layout/_variables.scss e _classes.scss). Ver docs/adr/0005-direcao-visual.md. */
 @theme {
@@ -55,15 +55,15 @@
 }
 
 @utility botao-destaque {
-  @apply botao bg-destaque text-white hover:bg-destaque-escura;
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-normal transition-colors disabled:cursor-not-allowed disabled:opacity-60 bg-destaque text-white hover:bg-destaque-escura;
 }
 
 @utility botao-marca {
-  @apply botao bg-marca text-white hover:bg-marca-escura;
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-normal transition-colors disabled:cursor-not-allowed disabled:opacity-60 bg-marca text-white hover:bg-marca-escura;
 }
 
 @utility botao-contorno {
-  @apply botao border border-current;
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-normal transition-colors disabled:cursor-not-allowed disabled:opacity-60 border border-current;
 }
 
 @utility campo {
