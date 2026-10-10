@@ -1,0 +1,4 @@
+[submodule "conteudo"]
+	path = conteudo
+	url = https://github.com/CA-SI/Sistemas-de-Informacao_UFV-CRP.git
+	branch = master
