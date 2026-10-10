@@ -13,13 +13,16 @@ convenções e comandos para pessoas e agentes.
 
 - `conteudo/` é um submodule de CA-SI/Sistemas-de-Informacao_UFV-CRP (branch `master`). **Nunca edite dados de
   disciplina aqui**: altere o repositório de conteúdo. Atualize o ponteiro com `yarn conteudo:atualizar`.
-- Leitura e validação: `src/lib/catalogo.ts` (só build). Funções puras que vão ao cliente: `src/lib/disciplina.ts` e
+- Leitura e validação: `src/lib/catalogo.ts` e `src/lib/guias.ts` (só build; links de guia são validados e só
+  aceitam `http`, `https` e `mailto` como esquema externo). Funções puras que vão ao cliente: `src/lib/disciplina.ts` e
   `src/lib/busca.ts`. Não importe `catalogo.ts` nem `conteudo.ts` em componente `'use client'`.
 
 ## Visual
 
 - `src/app/tema.css` é cópia do Guia CASI (ADR 0003). Não edite: mude no guia e copie.
 - Use os tokens (`bg-marca`, `text-suave`, `shadow-card`...) e as classes `.container-guia`, `.botao-*`, `.campo`.
+- Depois de copiar um `tema.css` novo, edite o comentário do topo de `src/app/globals.css`: em dev, o Turbopack não
+  reprocessa o `@import` e acusa utilidades desconhecidas (por exemplo, `bg-fundo`).
 - Contraste (regra do tema): a cor base (`marca`, `destaque`, `aberto`...) é só para decoração e preenchimento grande.
   Texto, botão e selo com texto usam a variante `-forte`; `-clara` é fundo suave; hero e rodapé usam `noite`. Nas
   áreas (`src/lib/disciplina.ts`), `cor` é decoração e `corForte` vai com texto. `src/lib/contraste.test.ts` verifica.

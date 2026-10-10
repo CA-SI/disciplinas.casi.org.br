@@ -2,8 +2,9 @@ import Link from 'next/link'
 import { ArrowRight, BookOpen, GitPullRequest, Layers, Library } from 'lucide-react'
 import { BuscaHero } from '@/components/busca-hero'
 import { CardDisciplina } from '@/components/card-disciplina'
+import { CardGuia } from '@/components/card-guia'
 import { AREAS } from '@/lib/disciplina'
-import { catalogo, resumos } from '@/lib/conteudo'
+import { catalogo, guias, resumos } from '@/lib/conteudo'
 import { site } from '@/lib/site'
 
 export const dynamic = 'force-static'
@@ -70,6 +71,29 @@ export default function Inicio() {
           </dl>
         </div>
       </section>
+
+      {guias().length > 0 && (
+        <section className="bg-marca-clara py-16 sm:py-20">
+          <div className="container-guia">
+            <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <h2 className="text-3xl sm:text-4xl">Comece por aqui</h2>
+                <p className="mt-2 text-suave">Como o curso funciona, além de cada disciplina.</p>
+              </div>
+              <Link href="/guias/" className="inline-flex items-center gap-1 text-marca-forte hover:underline">
+                Todos os guias <ArrowRight className="size-4" aria-hidden />
+              </Link>
+            </div>
+            <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {guias().slice(0, 3).map((g) => (
+                <li key={g.slug}>
+                  <CardGuia guia={g} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       <section className="container-guia py-16 sm:py-20">
         <div className="mb-10 flex flex-wrap items-end justify-between gap-4">

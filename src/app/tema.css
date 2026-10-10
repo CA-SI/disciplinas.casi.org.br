@@ -1,6 +1,6 @@
 /*
  * CÓPIA de CA-SI/guia.casi.org.br:src/app/tema.css (ADR 0003). Não edite aqui: altere no guia e copie de volta.
- * Origem: commit 14f726a6b0150f0722c03118f46677dc0953adac (branch feat/mvp-git-first).
+ * Origem: commit c695df05d8170032012662e5ebe0ac7f43decfd6 (branch feat/mvp-git-first).
  */
 /*
  * Paleta derivada do legado (ADR 0005) com contraste WCAG (spec 006).
@@ -99,5 +99,33 @@
 
   & a {
     @apply text-marca-forte underline underline-offset-2 hover:text-marca-escura;
+  }
+
+  & h3 {
+    @apply pt-2 text-xl text-texto;
+  }
+
+  & strong {
+    @apply font-normal text-texto;
+  }
+
+  & ul {
+    @apply list-disc space-y-2 pl-5 marker:text-marca;
+  }
+
+  & ol {
+    @apply list-decimal space-y-2 pl-5 marker:text-marca-forte;
+  }
+
+  & table {
+    @apply block w-full overflow-x-auto text-sm sm:table;
+  }
+
+  & th {
+    @apply border-b border-borda px-3 py-2 text-left font-normal text-texto;
+  }
+
+  & td {
+    @apply border-b border-borda px-3 py-2 align-top;
   }
 }

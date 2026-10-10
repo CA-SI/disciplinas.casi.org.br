@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-/* Tema (tokens e classes compartilhadas): src/app/tema.css, cópia do Guia CASI (ADR 0003). */
+/* Tema (tokens e classes compartilhadas): src/app/tema.css, cópia do Guia CASI (ADR 0003). Em dev, edite este arquivo depois de mudar o tema (o Turbopack não reprocessa o @import); última mudança: tema c695df0. */
 @import './tema.css';
 
 @layer base {

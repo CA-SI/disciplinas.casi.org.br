@@ -34,6 +34,7 @@ yarn dev        # http://localhost:3000
 | `/disciplinas/` | Lista com busca (inclusive na ementa) e filtros por tipo, período e área |
 | `/disciplinas/<codigo>/` | Página completa da disciplina |
 | `/matriz/` | Obrigatórias por período, com pré-requisitos |
+| `/guias/` e `/guias/<slug>/` | Guias do curso (matriz, TCC, extensão, optativas, matrizes anteriores), de `conteudo/guias/` |
 | `/sobre/` | Fontes e como contribuir |
 | `/api/disciplinas.json` | Lista em JSON ([contrato](docs/specs/001-site-disciplinas/spec.md#contrato-apidisciplinasjson)) |
 

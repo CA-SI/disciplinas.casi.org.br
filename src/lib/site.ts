@@ -15,5 +15,6 @@ export const navegacao = [
   { href: '/', rotulo: 'Início' },
   { href: '/disciplinas/', rotulo: 'Disciplinas' },
   { href: '/matriz/', rotulo: 'Matriz curricular' },
-  { href: '/sobre/', rotulo: 'Sobre e contribuição' },
+  { href: '/guias/', rotulo: 'Guias' },
+  { href: '/sobre/', rotulo: 'Sobre' },
 ]

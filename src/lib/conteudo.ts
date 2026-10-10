@@ -3,6 +3,7 @@ import path from 'node:path'
 import { carregarCatalogo, resumir, type Catalogo } from './catalogo.ts'
 import { caminho, liberadas, type Disciplina } from './disciplina.ts'
 import { ordenar } from './busca.ts'
+import { lerGuias, renderizarGuia, type Guia } from './guias.ts'
 
 export const RAIZ_CONTEUDO = path.join(process.cwd(), 'conteudo')
 
@@ -39,3 +40,19 @@ export function existe(codigo: string) {
 }
 
 export { caminho }
+
+
+let cacheGuias: Guia[] | undefined
+
+export function guias(): Guia[] {
+  cacheGuias ??= lerGuias(RAIZ_CONTEUDO)
+  return cacheGuias
+}
+
+export function guia(slug: string) {
+  return guias().find((g) => g.slug === slug)
+}
+
+export function htmlGuia(g: Guia) {
+  return renderizarGuia(g, RAIZ_CONTEUDO)
+}

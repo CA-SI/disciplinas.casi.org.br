@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import {
-  ArrowLeft,
   BookMarked,
   Clock,
   ExternalLink,
@@ -11,14 +10,17 @@ import {
   GitPullRequest,
   Library,
   ListTree,
+  MessageSquareWarning,
   Paperclip,
   Target,
 } from 'lucide-react'
 import { CabecalhoPagina } from '@/components/cabecalho-pagina'
 import { Prerequisitos } from '@/components/prerequisitos'
+import { Trilha } from '@/components/trilha'
 import { SeloTipo } from '@/components/selos'
 import { urlGithub } from '@/lib/catalogo'
 import { disciplinas, liberadasPor, porCodigo } from '@/lib/conteudo'
+import { site } from '@/lib/site'
 import { areaDe, caminho, dadosArea, slug } from '@/lib/disciplina'
 
 export const dynamicParams = false
@@ -110,9 +112,15 @@ export default async function PaginaDisciplina({ params }: Props) {
 
       <div className="container-guia grid gap-8 py-10 lg:grid-cols-[1fr_20rem] lg:py-14">
         <div className="min-w-0 space-y-6">
-          <Link href="/disciplinas/" className="inline-flex items-center gap-1 text-sm text-marca-forte hover:underline">
-            <ArrowLeft className="size-4" aria-hidden /> Todas as disciplinas
-          </Link>
+          <Trilha
+            itens={[
+              { href: '/disciplinas/', rotulo: 'Disciplinas' },
+              d.tipo === 'obrigatoria'
+                ? { href: `/disciplinas/?periodo=${d.periodo}`, rotulo: `${d.periodo}º período` }
+                : { href: `/disciplinas/?tipo=${d.tipo}`, rotulo: d.tipo === 'optativa' ? 'Optativas' : 'Matrizes anteriores' },
+              { rotulo: d.codigo },
+            ]}
+          />
 
           {d.tipo === 'anterior' && (
             <p className="rounded-md border-l-4 border-alerta bg-white p-4 text-suave shadow-card">
@@ -237,6 +245,24 @@ export default async function PaginaDisciplina({ params }: Props) {
               </a>
             )}
           </Secao>
+
+          <p className="flex items-start gap-3 rounded-md border border-dashed border-borda p-5 text-sm text-suave">
+            <MessageSquareWarning className="mt-0.5 size-5 shrink-0 text-marca-forte" aria-hidden />
+            <span>
+              Ementa, conteúdo e bibliografia vêm do{' '}
+              <a href={d.pdf} className="text-marca-forte underline underline-offset-2">
+                programa analítico do Catálogo UFV {d.catalogo}
+              </a>
+              , que prevalece em caso de divergência. Viu algo errado ou desatualizado?{' '}
+              <a
+                href={`${site.repoConteudo}/issues/new?title=${encodeURIComponent(`${d.codigo} ${d.nome}: correção`)}`}
+                className="text-marca-forte underline underline-offset-2"
+              >
+                Abra uma issue
+              </a>
+              .
+            </span>
+          </p>
         </div>
 
         <aside className="space-y-6 lg:sticky lg:top-28 lg:self-start">
