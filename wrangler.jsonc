@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "disciplinas-casi",
+  "compatibility_date": "2026-10-01",
+  // Só assets estáticos (ADR 0002): não há código de Worker.
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  },
+  "routes": [{ "pattern": "disciplinas.casi.org.br", "custom_domain": true }]
+}
