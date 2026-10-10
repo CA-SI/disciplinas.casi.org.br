@@ -1,22 +1,38 @@
 /*
  * CÓPIA de CA-SI/guia.casi.org.br:src/app/tema.css (ADR 0003). Não edite aqui: altere no guia e copie de volta.
- * Origem: commit 8b39d4478fe529af923cadf91f83423f3986a386 (branch feat/mvp-git-first).
+ * Origem: commit 14f726a6b0150f0722c03118f46677dc0953adac (branch feat/mvp-git-first).
  */
-/* Derivados do legado (legacy/scss/layout/_variables.scss e _classes.scss). Ver docs/adr/0005-direcao-visual.md. */
+/*
+ * Paleta derivada do legado (ADR 0005) com contraste WCAG (spec 006).
+ * Regra: a cor base (marca, destaque, aberto...) é para preenchimento grande e decoração;
+ * texto, botão e selo com texto usam a variante -forte (≥ 4,5:1 com branco); -clara é fundo suave.
+ * src/lib/contraste.test.ts verifica os pares.
+ */
 @theme {
   --font-sans: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
 
   --color-marca: #009cff;
-  --color-marca-escura: #0080d1;
+  --color-marca-forte: #0070c0;
+  --color-marca-escura: #005fa3;
+  --color-marca-clara: #e6f5ff;
+
   --color-destaque: #ff3a6d;
-  --color-destaque-escura: #e62a5b;
+  --color-destaque-forte: #d6265a;
+  --color-destaque-escura: #b81e4c;
+  --color-destaque-clara: #fff4f7;
+
   --color-aberto: #46cd38;
-  --color-alerta: #ffae00;
+  --color-aberto-forte: #16803a;
   --color-fechado: #ff7474;
+  --color-fechado-forte: #c53030;
+  --color-alerta: #ffae00;
+  --color-alerta-forte: #8a5300;
+
+  --color-noite: #0b1f33;
   --color-fundo: #f5f5f5;
   --color-texto: #252a33;
-  --color-suave: #626262;
-  --color-borda: #e6e6e6;
+  --color-suave: #5b6170;
+  --color-borda: #e3e5e8;
 
   --shadow-card: 0 2px 6px rgb(0 0 0 / 0.08);
   --shadow-card-hover: 0 12px 28px rgb(0 0 0 / 0.14);
@@ -55,11 +71,11 @@
 }
 
 @utility botao-destaque {
-  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-normal transition-colors disabled:cursor-not-allowed disabled:opacity-60 bg-destaque text-white hover:bg-destaque-escura;
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-normal transition-colors disabled:cursor-not-allowed disabled:opacity-60 bg-destaque-forte text-white hover:bg-destaque-escura;
 }
 
 @utility botao-marca {
-  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-normal transition-colors disabled:cursor-not-allowed disabled:opacity-60 bg-marca text-white hover:bg-marca-escura;
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-normal transition-colors disabled:cursor-not-allowed disabled:opacity-60 bg-marca-forte text-white hover:bg-marca-escura;
 }
 
 @utility botao-contorno {
@@ -67,7 +83,7 @@
 }
 
 @utility campo {
-  @apply w-full rounded-md border border-borda bg-white px-3 py-2.5 font-normal text-texto placeholder:font-light placeholder:text-suave/70 focus:border-marca focus:outline-none focus:ring-2 focus:ring-marca/20;
+  @apply w-full rounded-md border border-borda bg-white px-3 py-2.5 font-normal text-texto placeholder:font-light placeholder:text-suave/70 focus:border-marca-forte focus:outline-none focus:ring-2 focus:ring-marca/25;
 }
 
 @utility rotulo {
@@ -82,6 +98,6 @@
   }
 
   & a {
-    @apply text-marca underline-offset-2 hover:underline;
+    @apply text-marca-forte underline underline-offset-2 hover:text-marca-escura;
   }
 }

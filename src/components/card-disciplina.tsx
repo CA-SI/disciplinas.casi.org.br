@@ -26,7 +26,7 @@ export function CardDisciplina({ d }: { d: Resumo }) {
             </span>
           )}
           {d.temMaterial && (
-            <span className="inline-flex items-center gap-1 text-aberto">
+            <span className="inline-flex items-center gap-1 text-aberto-forte">
               <Paperclip className="size-3.5" aria-hidden /> materiais
             </span>
           )}

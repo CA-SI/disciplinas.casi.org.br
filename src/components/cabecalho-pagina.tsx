@@ -9,7 +9,7 @@ export function CabecalhoPagina({
   children?: React.ReactNode
 }) {
   return (
-    <section className="bg-texto text-white">
+    <section className="bg-noite text-white">
       <div className="container-guia py-12 sm:py-16">
         {sobretitulo && <p className="mb-3 text-sm uppercase tracking-[0.2em] text-white/60">{sobretitulo}</p>}
         <h1 className="max-w-4xl text-3xl font-light leading-tight sm:text-5xl">{titulo}</h1>

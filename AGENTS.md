@@ -20,6 +20,9 @@ convenções e comandos para pessoas e agentes.
 
 - `src/app/tema.css` é cópia do Guia CASI (ADR 0003). Não edite: mude no guia e copie.
 - Use os tokens (`bg-marca`, `text-suave`, `shadow-card`...) e as classes `.container-guia`, `.botao-*`, `.campo`.
+- Contraste (regra do tema): a cor base (`marca`, `destaque`, `aberto`...) é só para decoração e preenchimento grande.
+  Texto, botão e selo com texto usam a variante `-forte`; `-clara` é fundo suave; hero e rodapé usam `noite`. Nas
+  áreas (`src/lib/disciplina.ts`), `cor` é decoração e `corForte` vai com texto. `src/lib/contraste.test.ts` verifica.
 - Textos de interface em português do Brasil, identificadores em português (como no guia).
 
 ## Comandos

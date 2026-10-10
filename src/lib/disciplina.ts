@@ -54,13 +54,16 @@ export function rotuloTipo(tipo: Tipo) {
 
 export type Area = 'computacao' | 'dados' | 'matematica' | 'gestao' | 'humanidades'
 
-/** Áreas pelo prefixo do código. As cores vêm dos tokens do tema (ADR 0003). */
-export const AREAS: { valor: Area; rotulo: string; prefixos: string[]; cor: string }[] = [
-  { valor: 'computacao', rotulo: 'Computação e SI', prefixos: ['SIN'], cor: 'var(--color-marca)' },
-  { valor: 'dados', rotulo: 'Ciência de Dados e IA', prefixos: ['CDP'], cor: 'var(--color-destaque)' },
-  { valor: 'matematica', rotulo: 'Matemática, Estatística e Física', prefixos: ['MAP', 'ESP', 'FRP'], cor: 'var(--color-alerta)' },
-  { valor: 'gestao', rotulo: 'Gestão e Economia', prefixos: ['ADE', 'CIC'], cor: 'var(--color-aberto)' },
-  { valor: 'humanidades', rotulo: 'Humanidades e Linguagens', prefixos: ['CRP', 'NUR'], cor: 'var(--color-fechado)' },
+/**
+ * Áreas pelo prefixo do código, com cores dos tokens do tema (ADR 0003). Regra do tema: `cor` (base) é só para
+ * decoração e preenchimento grande; texto ou selo com texto usa `corForte` (≥ 4,5:1 com branco).
+ */
+export const AREAS: { valor: Area; rotulo: string; prefixos: string[]; cor: string; corForte: string }[] = [
+  { valor: 'computacao', rotulo: 'Computação e SI', prefixos: ['SIN'], cor: 'var(--color-marca)', corForte: 'var(--color-marca-forte)' },
+  { valor: 'dados', rotulo: 'Ciência de Dados e IA', prefixos: ['CDP'], cor: 'var(--color-destaque)', corForte: 'var(--color-destaque-forte)' },
+  { valor: 'matematica', rotulo: 'Matemática, Estatística e Física', prefixos: ['MAP', 'ESP', 'FRP'], cor: 'var(--color-alerta)', corForte: 'var(--color-alerta-forte)' },
+  { valor: 'gestao', rotulo: 'Gestão e Economia', prefixos: ['ADE', 'CIC'], cor: 'var(--color-aberto)', corForte: 'var(--color-aberto-forte)' },
+  { valor: 'humanidades', rotulo: 'Humanidades e Linguagens', prefixos: ['CRP', 'NUR'], cor: 'var(--color-fechado)', corForte: 'var(--color-fechado-forte)' },
 ]
 
 export function areaDe(codigo: string): Area {

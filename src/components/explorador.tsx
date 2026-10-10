@@ -91,7 +91,7 @@ export function Explorador({ disciplinas, periodos }: { disciplinas: Resumo[]; p
                 aria-pressed={ativo}
                 onClick={() => atualizar({ area: ativo ? undefined : a.valor })}
                 className={chip}
-                style={ativo ? { backgroundColor: a.cor, borderColor: a.cor, color: '#fff' } : undefined}
+                style={ativo ? { backgroundColor: a.corForte, borderColor: a.corForte, color: '#fff' } : undefined}
               >
                 <span className="size-2.5 rounded-full" style={{ backgroundColor: ativo ? '#fff' : a.cor }} aria-hidden />
                 {a.rotulo}
@@ -110,7 +110,7 @@ export function Explorador({ disciplinas, periodos }: { disciplinas: Resumo[]; p
                   type="button"
                   aria-pressed={ativo}
                   onClick={() => atualizar({ periodo: ativo ? undefined : p, tipo: ativo ? filtros.tipo : 'obrigatoria' })}
-                  className="shrink-0 rounded-full border border-borda bg-white px-3 py-1.5 text-[13px] text-suave transition aria-pressed:border-marca aria-pressed:bg-marca aria-pressed:text-white"
+                  className="shrink-0 rounded-full border border-borda bg-white px-3 py-1.5 text-[13px] text-suave transition aria-pressed:border-marca-forte aria-pressed:bg-marca-forte aria-pressed:text-white"
                 >
                   {p}º período
                 </button>
@@ -126,7 +126,7 @@ export function Explorador({ disciplinas, periodos }: { disciplinas: Resumo[]; p
             <button
               type="button"
               onClick={() => setFiltros({ q: '' })}
-              className="ml-3 inline-flex items-center gap-1 text-marca hover:underline"
+              className="ml-3 inline-flex items-center gap-1 text-marca-forte hover:underline"
             >
               <X className="size-3.5" aria-hidden /> limpar filtros
             </button>

@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 
+/* Tema (tokens e classes compartilhadas): src/app/tema.css, cópia do Guia CASI (ADR 0003). */
 @import './tema.css';
 
 @layer base {
@@ -18,7 +19,7 @@
   }
 
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-marca;
+    @apply outline-2 outline-offset-2 outline-marca-forte;
   }
 
   @media (prefers-reduced-motion: reduce) {

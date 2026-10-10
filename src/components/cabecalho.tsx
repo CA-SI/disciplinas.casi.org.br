@@ -18,7 +18,7 @@ export function Cabecalho() {
           <Link
             href="/disciplinas/"
             aria-label="Buscar disciplinas"
-            className="inline-flex size-11 items-center justify-center rounded-full bg-marca text-white shadow-md transition-transform hover:scale-105"
+            className="inline-flex size-11 items-center justify-center rounded-full bg-marca-forte text-white shadow-md transition-transform hover:scale-105"
           >
             <Search className="size-5" />
           </Link>
@@ -26,7 +26,7 @@ export function Cabecalho() {
             href={site.repoConteudo}
             aria-label="Contribuir no GitHub"
             title="Contribuir no GitHub"
-            className="inline-flex size-11 items-center justify-center rounded-full bg-destaque text-white shadow-md transition-transform hover:scale-105 lg:w-auto lg:gap-2 lg:px-5"
+            className="inline-flex size-11 items-center justify-center rounded-full bg-destaque-forte text-white shadow-md transition-transform hover:scale-105 lg:w-auto lg:gap-2 lg:px-5"
           >
             <GitPullRequest className="size-5" />
             <span className="hidden text-sm font-normal lg:inline">Contribuir</span>

@@ -12,7 +12,7 @@ const externos = [
 
 export function Rodape() {
   return (
-    <footer className="mt-auto bg-texto text-white/70">
+    <footer className="mt-auto bg-noite text-white/70">
       <div className="container-guia grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div className="lg:col-span-2">
           <Logo claro />

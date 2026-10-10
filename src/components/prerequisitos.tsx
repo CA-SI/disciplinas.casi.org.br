@@ -11,7 +11,7 @@ export function Prerequisitos({ texto, existentes }: { texto: string; existentes
         'texto' in t ? (
           <span key={i}>{t.texto}</span>
         ) : existentes.has(t.codigo) ? (
-          <Link key={i} href={caminho(t.codigo)} className="font-normal text-marca hover:underline" title={t.correquisito ? 'Correquisito: pode ser cursada no mesmo semestre' : undefined}>
+          <Link key={i} href={caminho(t.codigo)} className="font-normal text-marca-forte hover:underline" title={t.correquisito ? 'Correquisito: pode ser cursada no mesmo semestre' : undefined}>
             {t.rotulo}
             {t.correquisito && '*'}
           </Link>

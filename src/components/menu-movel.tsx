@@ -42,7 +42,7 @@ export function MenuMovel() {
                   href={item.href}
                   onClick={() => setAberto(false)}
                   aria-current={caminho === item.href ? 'page' : undefined}
-                  className="block py-3 text-lg text-texto aria-[current=page]:text-marca"
+                  className="block py-3 text-lg text-texto aria-[current=page]:text-marca-forte"
                 >
                   {item.rotulo}
                 </Link>

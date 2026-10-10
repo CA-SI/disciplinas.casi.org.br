@@ -1,8 +1,8 @@
 import { dadosArea, rotuloTipo, type Area, type Tipo } from '@/lib/disciplina'
 
 const COR_TIPO: Record<Tipo, string> = {
-  obrigatoria: 'bg-marca/10 text-marca-escura',
-  optativa: 'bg-destaque/10 text-destaque-escura',
+  obrigatoria: 'bg-marca-clara text-marca-forte',
+  optativa: 'bg-destaque-clara text-destaque-forte',
   anterior: 'bg-borda text-suave',
 }
 
@@ -20,7 +20,7 @@ export function SeloArea({ codigo, area, className = '' }: { codigo: string; are
   return (
     <span
       className={`inline-flex size-12 shrink-0 items-center justify-center rounded-full text-xs font-medium tracking-wide text-white shadow-md ring-4 ring-white ${className}`}
-      style={{ backgroundColor: dadosArea(area).cor }}
+      style={{ backgroundColor: dadosArea(area).corForte }}
       title={dadosArea(area).rotulo}
     >
       {codigo.slice(0, 3)}

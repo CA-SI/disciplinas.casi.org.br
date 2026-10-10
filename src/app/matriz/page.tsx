@@ -48,7 +48,7 @@ export default function Matriz() {
               const doPeriodo = obrigatorias.filter((d) => d.periodo === p)
               return (
                 <li key={p} className="flex flex-col gap-3">
-                  <h2 className="rounded-md bg-texto px-3 py-2 text-center text-white">
+                  <h2 className="rounded-md bg-noite px-3 py-2 text-center text-white">
                     {p}º período
                     <span className="block text-xs text-white/60">{doPeriodo.reduce((s, d) => s + (d.horas ?? 0), 0)} h</span>
                   </h2>
@@ -64,7 +64,7 @@ export default function Matriz() {
                         style={{ borderTopColor: area.cor }}
                       >
                         <span className="font-mono text-xs text-suave">{d.codigo}</span>
-                        <span className="mt-1 leading-snug text-texto group-hover:text-marca">{d.nome}</span>
+                        <span className="mt-1 leading-snug text-texto group-hover:text-marca-forte">{d.nome}</span>
                         <span className="mt-2 text-xs text-suave">{d.horas} h</span>
                         {pre.length > 0 && (
                           <span className="mt-2 flex flex-wrap gap-1">
@@ -90,11 +90,11 @@ export default function Matriz() {
 
         <p className="mt-8 text-sm text-suave">
           Fonte:{' '}
-          <a href={cat.fonte} className="inline-flex items-center gap-1 text-marca hover:underline">
+          <a href={cat.fonte} className="inline-flex items-center gap-1 text-marca-forte hover:underline">
             Catálogo de Graduação da UFV <ExternalLink className="size-3.5" aria-hidden />
           </a>
           . As optativas estão em{' '}
-          <Link href="/disciplinas/?tipo=optativa" className="text-marca hover:underline">
+          <Link href="/disciplinas/?tipo=optativa" className="text-marca-forte hover:underline">
             Disciplinas › Optativas
           </Link>
           .

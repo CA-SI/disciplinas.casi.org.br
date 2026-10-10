@@ -16,7 +16,7 @@ export function BuscaHero() {
       />
       <button
         type="submit"
-        className="flex items-center gap-2 bg-destaque px-5 text-sm uppercase tracking-wider text-white transition-colors hover:bg-destaque-escura sm:px-8"
+        className="flex items-center gap-2 bg-destaque-forte px-5 text-sm uppercase tracking-wider text-white transition-colors hover:bg-destaque-escura sm:px-8"
       >
         <Search className="size-5" aria-hidden />
         <span className="hidden sm:inline">Buscar</span>

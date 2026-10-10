@@ -26,7 +26,7 @@ export default function Inicio() {
 
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-texto text-white">
+      <section className="relative isolate overflow-hidden bg-noite text-white">
         {/* Aurora com as cores das áreas, como no hero do guia. */}
         <div aria-hidden className="absolute inset-0 -z-10 opacity-70">
           {AREAS.map((a, i) => (
@@ -42,7 +42,7 @@ export default function Inicio() {
               }}
             />
           ))}
-          <div className="absolute inset-0 bg-texto/40" />
+          <div className="absolute inset-0 bg-noite/40" />
         </div>
 
         <div className="container-guia flex flex-col items-center py-20 text-center sm:py-28">
@@ -74,7 +74,7 @@ export default function Inicio() {
       <section className="container-guia py-16 sm:py-20">
         <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
           <h2 className="text-3xl sm:text-4xl">Explore por período</h2>
-          <Link href="/matriz/" className="inline-flex items-center gap-1 text-marca hover:underline">
+          <Link href="/matriz/" className="inline-flex items-center gap-1 text-marca-forte hover:underline">
             Ver a matriz completa <ArrowRight className="size-4" aria-hidden />
           </Link>
         </div>
@@ -87,7 +87,7 @@ export default function Inicio() {
                   href={`/disciplinas/?periodo=${p}`}
                   className="group flex h-full flex-col rounded-md bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-card-hover"
                 >
-                  <span className="inline-flex size-12 items-center justify-center rounded-full bg-marca text-lg text-white shadow-md transition-transform duration-300 group-hover:scale-110">
+                  <span className="inline-flex size-12 items-center justify-center rounded-full bg-marca-forte text-lg text-white shadow-md transition-transform duration-300 group-hover:scale-110">
                     {p}º
                   </span>
                   <span className="mt-5 text-xl text-texto">{p}º período</span>
@@ -108,7 +108,7 @@ export default function Inicio() {
         <div className="container-guia">
           <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
             <h2 className="text-3xl sm:text-4xl">Optativas</h2>
-            <Link href="/disciplinas/?tipo=optativa" className="inline-flex items-center gap-1 text-marca hover:underline">
+            <Link href="/disciplinas/?tipo=optativa" className="inline-flex items-center gap-1 text-marca-forte hover:underline">
               Ver as {optativas.length} optativas <ArrowRight className="size-4" aria-hidden />
             </Link>
           </div>
@@ -141,14 +141,14 @@ export default function Inicio() {
           },
         ].map(({ icone: Icone, titulo, texto }) => (
           <div key={titulo} className="rounded-md bg-white p-6 shadow-card">
-            <Icone className="size-8 text-marca" aria-hidden />
+            <Icone className="size-8 text-marca-forte" aria-hidden />
             <h3 className="mt-4 text-xl">{titulo}</h3>
             <p className="mt-2 leading-relaxed text-suave">{texto}</p>
           </div>
         ))}
       </section>
 
-      <section className="bg-destaque text-white">
+      <section className="bg-destaque-forte text-white">
         <div className="container-guia flex flex-col items-center gap-6 py-16 text-center">
           <h2 className="text-3xl sm:text-4xl">Tem material de alguma disciplina?</h2>
           <p className="max-w-xl text-lg text-white/85">
@@ -156,7 +156,7 @@ export default function Inicio() {
             curso. A equipe do CASI revisa e o site atualiza sozinho.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            <a href={site.repoConteudo} className="botao bg-white px-7 py-3 text-destaque hover:bg-white/90">
+            <a href={site.repoConteudo} className="botao bg-white px-7 py-3 text-destaque-forte hover:bg-white/90">
               <GitPullRequest className="size-4" aria-hidden /> Contribuir no GitHub
             </a>
             <Link href="/sobre/" className="botao-contorno px-7 py-3 text-white hover:bg-white/10">

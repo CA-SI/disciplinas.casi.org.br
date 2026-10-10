@@ -43,7 +43,7 @@ function Secao({ id, icone: Icone, titulo, children }: { id: string; icone: type
   return (
     <section id={id} className="scroll-mt-24 rounded-md bg-white p-6 shadow-card sm:p-8">
       <h2 className="mb-4 flex items-center gap-3 text-2xl">
-        <Icone className="size-6 text-marca" aria-hidden /> {titulo}
+        <Icone className="size-6 text-marca-forte" aria-hidden /> {titulo}
       </h2>
       {children}
     </section>
@@ -110,7 +110,7 @@ export default async function PaginaDisciplina({ params }: Props) {
 
       <div className="container-guia grid gap-8 py-10 lg:grid-cols-[1fr_20rem] lg:py-14">
         <div className="min-w-0 space-y-6">
-          <Link href="/disciplinas/" className="inline-flex items-center gap-1 text-sm text-marca hover:underline">
+          <Link href="/disciplinas/" className="inline-flex items-center gap-1 text-sm text-marca-forte hover:underline">
             <ArrowLeft className="size-4" aria-hidden /> Todas as disciplinas
           </Link>
 
@@ -150,7 +150,7 @@ export default async function PaginaDisciplina({ params }: Props) {
                         <ul className="space-y-1 border-t border-borda px-4 py-3 text-sm text-suave">
                           {u.itens.map(([nivel, texto], j) => (
                             <li key={j} className="flex gap-2" style={{ paddingLeft: `${(nivel - 1) * 1.25}rem` }}>
-                              <span className="text-marca" aria-hidden>
+                              <span className="text-marca-forte" aria-hidden>
                                 {nivel > 1 ? '◦' : '•'}
                               </span>
                               {texto}
@@ -193,7 +193,7 @@ export default async function PaginaDisciplina({ params }: Props) {
                       href={r.url}
                       className="group flex h-full flex-col rounded-md border border-borda p-4 transition hover:border-marca hover:shadow-card"
                     >
-                      <span className="flex items-start justify-between gap-2 text-texto group-hover:text-marca">
+                      <span className="flex items-start justify-between gap-2 text-texto group-hover:text-marca-forte">
                         {r.titulo}
                         <ExternalLink className="mt-1 size-3.5 shrink-0 text-suave" aria-hidden />
                       </span>
@@ -204,7 +204,7 @@ export default async function PaginaDisciplina({ params }: Props) {
               </ul>
               <p className="mt-4 text-sm text-suave">
                 Selecionadas pela comunidade em{' '}
-                <a href={urlGithub('dados/referencias.json', 'blob')} className="text-marca hover:underline">
+                <a href={urlGithub('dados/referencias.json', 'blob')} className="text-marca-forte hover:underline">
                   dados/referencias.json
                 </a>
                 . Sugira outras por pull request.
@@ -217,7 +217,7 @@ export default async function PaginaDisciplina({ params }: Props) {
               <ul className="divide-y divide-borda">
                 {d.materiais.map((m) => (
                   <li key={m.url}>
-                    <a href={m.url} className="flex items-center gap-3 py-3 text-texto hover:text-marca">
+                    <a href={m.url} className="flex items-center gap-3 py-3 text-texto hover:text-marca-forte">
                       {m.externo ? <FolderGit2 className="size-5 shrink-0 text-suave" aria-hidden /> : <FileText className="size-5 shrink-0 text-suave" aria-hidden />}
                       <span className="min-w-0 break-words">{m.nome}</span>
                       {m.externo && <span className="ml-auto shrink-0 text-xs text-suave">repositório externo</span>}
@@ -253,7 +253,7 @@ export default async function PaginaDisciplina({ params }: Props) {
                   <dt className="text-suave">É pré-requisito de</dt>
                   <dd className="mt-1 flex flex-wrap gap-1.5">
                     {libera.map((c) => (
-                      <Link key={c} href={caminho(c)} className="rounded-full bg-fundo px-2.5 py-0.5 font-mono text-xs text-texto hover:bg-marca hover:text-white">
+                      <Link key={c} href={caminho(c)} className="rounded-full bg-fundo px-2.5 py-0.5 font-mono text-xs text-texto hover:bg-marca-forte hover:text-white">
                         {c}
                       </Link>
                     ))}
@@ -277,7 +277,7 @@ export default async function PaginaDisciplina({ params }: Props) {
             <ul className="space-y-2 text-sm">
               {indice.map((s) => (
                 <li key={s.id}>
-                  <a href={`#${s.id}`} className="text-texto hover:text-marca">
+                  <a href={`#${s.id}`} className="text-texto hover:text-marca-forte">
                     {s.rotulo}
                   </a>
                 </li>
