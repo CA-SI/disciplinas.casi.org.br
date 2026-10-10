@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import { mkdirSync, mkdtempSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import path from 'node:path'
-import { lerGuias, renderizarGuia, resolverLink } from './guias.ts'
+import { lerGuias, renderizarGuia, resolverImagem, resolverLink } from './guias.ts'
 
 const frontmatter = (extra = '') => `---
 titulo: Trabalho de Conclusão de Curso
@@ -85,4 +85,29 @@ test('link com esquema perigoso quebra o build', () => {
   assert.throws(() => resolverLink('javascript:alert(1)', raiz), /esquema de link não permitido/)
   assert.throws(() => resolverLink('data:text/html,x', raiz), /esquema de link não permitido/)
   assert.equal(resolverLink('mailto:casi@ufv.br', raiz), 'mailto:casi@ufv.br')
+})
+
+test('URL relativa ao protocolo e rotas inexistentes quebram o build', () => {
+  const raiz = montar({ 'tcc.md': frontmatter() + 'x' })
+  assert.throws(() => resolverLink('//evil.com', raiz), /fora das rotas do site/)
+  assert.throws(() => resolverLink('/\\evil.com', raiz), /fora das rotas do site/)
+  assert.throws(() => resolverLink('/disciplinas/sin999/', raiz), /disciplina inexistente/)
+  assert.throws(() => resolverLink('/guias/nao-existe/', raiz), /guia inexistente/)
+  assert.equal(resolverLink('/disciplinas/sin488/', raiz), '/disciplinas/sin488/')
+  assert.equal(resolverLink('/guias/tcc/#banca', raiz), '/guias/tcc/#banca')
+  assert.equal(resolverLink('/matriz/', raiz), '/matriz/')
+})
+
+test('imagens: https passa, relativa vira raw do GitHub, outros esquemas quebram', () => {
+  const raiz = montar({})
+  assert.equal(resolverImagem('https://exemplo.org/a.png', raiz), 'https://exemplo.org/a.png')
+  assert.match(resolverImagem('../Z-Outros/Regulamento.pdf', raiz), /^https:\/\/raw\.githubusercontent\.com\/CA-SI\/.+\/master\/Z-Outros\/Regulamento\.pdf$/)
+  assert.throws(() => resolverImagem('javascript:alert(1)', raiz), /não permitida/)
+  assert.throws(() => resolverImagem('//evil.com/x.png', raiz), /não permitida/)
+  assert.throws(() => resolverImagem('http://inseguro.org/x.png', raiz), /não permitida/)
+})
+
+test('links por referência também são validados', () => {
+  const raiz = montar({ 'tcc.md': frontmatter() + '[x][ref]\n\n[ref]: javascript:alert(1)\n' })
+  assert.throws(() => renderizarGuia(lerGuias(raiz)[0], raiz), /esquema de link não permitido/)
 })
